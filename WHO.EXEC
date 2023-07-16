@@ -1,0 +1,17 @@
+/*                  */
+SAY 'ONLINE USERS'
+a = 0
+do i = 0 to 800 by 1
+   a=a+i
+end
+'SMSG RSCS Q SYS'
+'smsg rscs q files show full'
+SAY ' '
+a = 0
+do i = 0 to 3000 by 1
+   a = a + 1
+end
+'PIPE VMC PERFSVM CPU|DROP 3|TAKE 9|SUBSTR W1-7|CONSOLE'
+SAY '  '
+EXIT
+ 
