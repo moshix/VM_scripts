@@ -1,0 +1,3 @@
+/* htop rexx script */
+'PIPE VMC PERFSVM CPU|DROP 13|TAKE 2|SUBSTR W1-11|CONSOLE'
+EXIT
