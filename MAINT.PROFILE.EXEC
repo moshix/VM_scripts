@@ -1,0 +1,53 @@
+ /***************************/
+ /*  Maint Profile Exec     */
+ /***************************/
+ 'screen outarea green none inarea white statarea red'
+ 'set rdymsg smsg src'
+ 'set filepool vmsysu'
+ 'force webserv'
+ 'xautolog webserv'
+ 'SET SRM POLARIZATION HORIZONTAL'
+ 'SET FILEPOOL VMSYSU'
+ 'TELL RELAY /LOGON'
+ 'tell butler /bcast'
+ Address Command
+ 'SYNONYM SYN'
+ 'CP TERMINAL MODE VM'
+ 'CP SPOOL CONSOLE * START'
+ 'CP SET PF11 RETRIEVE FORWARD'
+ 'CP SET PF12 RETRIEVE BACKWARD'
+ 'CP SET PF23 RETRIEVE FORWARD'
+ 'CP SET PF24 RETRIEVE BACKWARD'
+ 'ACCESS 5E5 B'
+ 'ACCESS 2CC C'
+ 'ACCESS 51D D'
+ 'ACCESS 551 E'
+ 'ACCESS 193 I'
+ 'ACCESS 592 t'
+ 'ACCESS F9A F' /* COBOL   */
+ 'ACCESS F9B G' /* HLASM   */
+ 'ACCESS F9C H' /* TOOLKIT */
+ 'ACCESS F9D J' /* C/C+++  */
+ GLOBAL TXTLIB SCEELKED
+ GLOBAL LOADLIB SCEERUN
+ /* 'SET FILEPOOL VMSYS:' */
+ 'SET LDRTBLS 25'
+ "PIPE CP QUERY CPLEVEL | STRIP | XLATE | VAR CPLEVEL"
+ Parse var cplevel . "VERSION" v "RELEASE" r "." m "," .
+ vrm = STRIP(v)||STRIP(r)||STRIP(m)
+  thisuserid = userid()
+ Say "     "
+ Say "     "
+ Say "     "
+ say "LPAR INFO: "
+ exec cpu exec a
+ exec iorate exec a
+ 'QUERY LIMITS FOR MAINT VMSSYSU'
+ 'Q LIMITS     '
+ 'NETSTAT OBEY FOREIGNIPCONLIMIT 5%'
+ 'CP SMSG RSCS QUERY LINKS SHOW NAME QUEUED'
+ 'CP TERM BREAKIN GUESTCTL'
+ 'EXEC LIMITS EXEC A'
+ SAY 'EITHER ADD 81 IN PROFILE TCPIP OR: NETSTAT OBEY PORT 81 TCP PERFSVM NOAUTOLOG'
+ SAY "TVMLINK AUTOLOG1 191 (WRITE FILELIST"
+ Exit
