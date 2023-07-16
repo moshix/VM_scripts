@@ -1,0 +1,6 @@
+/* rexx to passe command to GUEST */
+parse arg vmname command
+say 'command sent: send cp 'vmname' vi vmsg 'command
+"send cp "vmname" vi vmsg" command
+exit
+ 
