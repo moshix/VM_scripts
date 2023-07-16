@@ -1,0 +1,11 @@
+/* rexx to open console on */
+parse arg vm
+'set observer 'vm'  *'
+say 'setting observer for 'vm
+say ' '
+'send cp 'vm ' vi vmsg v cn(*),activate'
+say 'console activated....'
+'send cp 'vm' vi vmsg d a,l'
+say 'connection established to 'vm
+exit
+ 
