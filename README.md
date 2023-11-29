@@ -8,7 +8,8 @@ Stuff for every day use when you manage a VM mainframe
 
 # Some Useful VM Sorcery
 
-How to enable PERFKIT on z/VM (including web interface): https://www.ibm.com/support/pages/system/files/inline-files/Configuring_Perfkit.pdf
+How to enable PERFKIT on z/VM (including web interface): https://www.ibm.com/support/pages/system/files/inline-files/Configuring_Perfkit.pdf  
+This guide works from z/VM 6.1 up to z/VM 7.3 and the manual is in this repo.  
 
 To rebuild failed saved segments CMSPIPES CMSBAM etc etc, do this as MAINT640:
 <pre>
